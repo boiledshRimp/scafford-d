@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %strong タイトル:
+  = @diary.title
+%p
+  %strong 本文:
+  = simple_format(@diary.body)
+%p
+  %strong 登録日時:
+  = @diary.created_at
+%p
+  %strong 更新日時:
+  = @diary.updated_at
+= link_to '編集', edit_diary_path(@diary)
+|
+= link_to '削除', @diary, method: :delete, data: { confirm: '本当に削除しますか?' }
+|
+= link_to '一覧に戻る', diaries_path
